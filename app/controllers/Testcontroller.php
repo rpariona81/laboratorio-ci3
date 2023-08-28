@@ -14,6 +14,8 @@ class TestController extends CI_Controller
     public function index()
     {
         $data['query'] = $this->Career_model->get_all();
-        $this->load->view('tabletest', $data);
+        //$this->load->view('tabletest', $data);
+        
+        $this->load->view('template-app', $data);
     }
 }
