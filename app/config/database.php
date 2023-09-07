@@ -114,6 +114,8 @@ $capsule->addConnection([
     'charset' => $db['default']['char_set'],
     'collation' => $db['default']['dbcollat'],
     'prefix' => $db['default']['dbprefix'],
+    //https://laracasts.com/discuss/channels/laravel/sql-server-self-signed-certificate-after-valet-restart
+    'trust_server_certificate' => true
 ]);
 
 //https://notes.enovision.net/codeigniter/eloquent-in-codeigniter/install-eloquent-with-composer

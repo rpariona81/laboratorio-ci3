@@ -16,6 +16,8 @@ class TestController extends CI_Controller
         $data['query'] = $this->Career_model->get_all();
         //$this->load->view('tabletest', $data);
         //$this->load->view('template-app', $data);
-        $this->load->view('testws', $data);
+        //$this->load->view('testws', $data);
+        //$this->load->view('testview', $data);
+        $this->load->view('testviewh', $data);
     }
 }
