@@ -35,24 +35,60 @@
         <!-- ============================================================== -->
         <!-- Header part -->
         <!-- ============================================================== -->
+        <!--<header class="py-3 bg-white">-->
         <header class="py-3 bg-white">
             <div class="container">
                 <!-- Start Header -->
                 <div class="header">
                     <nav class="navbar navbar-expand-md navbar-light px-0">
                         <a class="navbar-brand" href="#"> <img src="<?= base_url('public/images/logo-icon.png') ?>" alt="logo" />
-                            <span> <img src="<?= base_url('public/images/logo-text.png') ?>" alt="logo" />
+                            &nbsp;<span> <img src="<?= base_url('public/images/SELLO_RONALD_NEGRO.png') ?>" alt="logo" />
                             </span>
-                        </a>
+                        </a>&nbsp;
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul class="navbar-nav ms-auto flex-row mt-3 mt-md-0">
-                                <li class="nav-item pe-3"><a href="https://www.wrappixel.com/templates/adminwrap-lite/#comparison" class="btn btn-custom btn-outline-info btn-lg" target="_blank">Free
-                                        Download</a></li>
-                                <li class="nav-item"><a href="https://www.wrappixel.com/templates/adminwrap/?ref=33" class="btn btn-custom btn-info btn-lg" target="_blank">Check
-                                        Pro Version</a></li>
+                            <!--<ul class="navbar-nav ms-auto flex-row mt-3 mt-md-0">-->
+                            <ul class="navbar-nav ms-auto mt-3 mt-md-0">
+                                <!--<ul class="navbar-nav me-auto mb-2 mb-md-0">-->
+                                <li class="nav-item">
+                                    <a class="nav-link" aria-current="page" href="/users">
+                                        <h6><i class="fa fa-area-chart"></i>&nbsp;
+                                            Optimización</h6>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/users/credenciales">
+                                        <h6><i class="fa fa-calendar"></i>&nbsp;
+                                            Cronograma de Licenciamiento</h6>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/users/credenciales">
+                                        <h6><i class="fa fa-users"></i>&nbsp;
+                                            Fortalecimiento</h6>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="navbar-nav ms-auto me-0 me-md-3 my-2 my-md-0">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle text-black" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <strong>Administrador&nbsp;</strong><i class="fa fa-user fa-fw"></i>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                        <li class="nav-item"><a class="nav-link" href="/admin/claves">&nbsp;Mi perfil</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="/admin/claves">&nbsp;Cambiar clave</a></li>
+                                        <li>
+                                            <hr class="dropdown-divider" />
+                                        </li>
+                                        <!-- Boton salir-->
+                                        <form class="text-center ml-4" action="/logout">
+                                            <input class="btn btn-custom btn-danger btn-lg" id="btnLogout" type="submit" value="Cerrar sesión"></input>
+                                        </form>
+
+                                    </ul>
+                                </li>
                             </ul>
                         </div>
                     </nav>
@@ -145,45 +181,45 @@
 
 <script>
     //document.addEventListener("DOMContentLoaded", function() {
-            // Datatables Responsive
-            // https://datatables.net/reference/button/excelHtml5
+    // Datatables Responsive
+    // https://datatables.net/reference/button/excelHtml5
 
-        //https://www.youtube.com/watch?v=j59H9xnyCBs
-        $(document).ready(function(){
-            var mytable = $("#example").DataTable({
-                deferRender: true,
-                responsive: true,
-                pageLength: 5,
-                lengthMenu: [ 5, 10, 25, 50 ],
-                scrollH: true,
-                scrollX: true,
-                order: [],
-                stateSave: true,
-                language: {
-                    url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/es-ES.json',
-                }
-            });
+    //https://www.youtube.com/watch?v=j59H9xnyCBs
+    $(document).ready(function() {
+        var mytable = $("#example").DataTable({
+            deferRender: true,
+            responsive: true,
+            pageLength: 5,
+            lengthMenu: [5, 10, 25, 50],
+            scrollH: true,
+            scrollX: true,
+            order: [],
+            stateSave: true,
+            language: {
+                url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/es-ES.json',
+            }
+        });
 
-            new $.fn.dataTable.Buttons( mytable , {
-                buttons: [
-                    'copy', 'pdf', 
-                    {
-                        extend: 'excelHtml5',
-                        text: 'Excel',
-                        customize: function(xlsx) {
+        new $.fn.dataTable.Buttons(mytable, {
+            buttons: [
+                'copy', 'pdf',
+                {
+                    extend: 'excelHtml5',
+                    text: 'Excel',
+                    customize: function(xlsx) {
                         var sheet = xlsx.xl.worksheets['sheet1.xml'];
                         //Para ver los estilos de formato https://datatables.net/reference/button/excelHtml5
                         $('row c[r^="B"]', sheet).attr('s', '57');
                         //Para que la columna se muestre como texto https://datatables.net/forums/discussion/73814/export-to-excel-with-format-text-for-column-b-c-and-d
                         $('row c[r^="C"]', sheet).attr('s', '50');
-                        }
                     }
-                ]
-            });
-
-            mytable.buttons().container().appendTo($('tr th.heading', mytable.table().container()));
-
+                }
+            ]
         });
+
+        mytable.buttons().container().appendTo($('tr th.heading', mytable.table().container()));
+
+    });
 </script>
 
 </html>
